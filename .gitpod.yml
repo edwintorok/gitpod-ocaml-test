@@ -1,5 +1,6 @@
 image: edwintorok00/gitpod-ocaml-test:latest
 tasks:
+  - name: Build Framework
     command: |
       eval $(opam env)
       # Install all dependencies from opam file

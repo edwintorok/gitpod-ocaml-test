@@ -5,12 +5,12 @@
 (generate_opam_files true)
 
 (source
- (github gitpod-samples/template-ocaml))
+ (github edwintorok/gitpod-ocaml-test))
 
 (license LICENSE)
 
 (package
  (name helloworld)
- (depends ocaml dune))
+ (depends ocaml dune domainslib))
 
 ; See the complete stanza docs at https://dune.readthedocs.io/en/stable/dune-files.html#dune-project

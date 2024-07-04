@@ -40,8 +40,15 @@ RUN brew update ; \
   rm -rf "$(brew --cache)"
 
 # Enables keeping the dependencies cached between startups
-RUN echo 'export OPAMROOT=/workspace/.opam' >> /home/gitpod/.bashrc
-
 # Makes sure that this line—which is normally inserted as part of the opam init—
 # is always in the bashrc file.
-RUN echo '. /workspace/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true' >> /home/gitpod/.bashrc
+RUN echo 'export OPAMROOT=/workspace/.opam' >> /home/gitpod/.bashrc && \
+    echo '. /workspace/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true' >> /home/gitpod/.bashrc
+
+RUN opam init -ay --disable-sandboxing && \
+    eval $(opam env) && \
+    opam update && \
+    opam install --yes ocamlformat ocamlformat-rpc ocaml-lsp-server && \
+    opam install --yes dune odoc utop && \
+    opam install --yes fmt user-setup && \
+    opam user-setup install

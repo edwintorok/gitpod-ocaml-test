@@ -1,5 +1,4 @@
-image:
-  file: .gitpod.Dockerfile
+image: edwintorok00/gitpod-ocaml-test:latest
 tasks:
     command: |
       eval $(opam env)

@@ -42,9 +42,8 @@ RUN brew update ; \
 RUN opam init -ay --disable-sandboxing && \
     eval $(opam env) && \
     opam update && \
-    opam install --yes ocamlformat ocaml-lsp-server && \
-    opam install --yes dune odoc utop && \
-    opam install --yes fmt user-setup && \
+    export OPAMJOBS=8 && \
+    opam install --yes ocamlformat ocaml-lsp-server dune odoc utop user-setup && \
     opam user-setup install
 
 # Enables keeping the dependencies cached between startups

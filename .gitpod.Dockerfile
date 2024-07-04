@@ -39,8 +39,9 @@ RUN brew update ; \
   brew cleanup --prune=all ; \
   rm -rf "$(brew --cache)"
 
-RUN opam init -ay --disable-sandboxing && \
-    eval $(opam env) && \
+RUN opam init -ay --disable-sandboxing
+
+RUN eval $(opam env) && \
     opam update && \
     export OPAMJOBS=8 && \
     opam install --yes ocamlformat ocaml-lsp-server dune odoc utop user-setup && \

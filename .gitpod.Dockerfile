@@ -3,7 +3,6 @@ FROM gitpod/workspace-full
 USER gitpod
 
 ENV HOMEBREW_NO_INSTALL_CLEANUP=true
-ENV OPAMROOT=/workspace/.opam
 
 
 ####

@@ -38,7 +38,7 @@ RUN brew update ; \
   brew cleanup --prune=all ; \
   rm -rf "$(brew --cache)"
 
-RUN opam init -ay --disable-sandboxing
+RUN opam init -ay --disable-sandboxing --compiler 5.1.1+effect-syntax
 
 RUN eval $(opam env) && \
     opam update && \
